@@ -16,7 +16,7 @@ public class NoteSteps {
     @Given("^(.*) want to remember to (.*)$")
     public void remember_a_note(String user, String note) {
         this.note = new Note(note);
-        helper.enterNote(user, note);
+        helper.addNote(user, note);
     }
 
     @When("^she has entered the details$")

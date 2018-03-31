@@ -11,7 +11,7 @@ public class NoteHelper {
     private User user;
     private Note note;
 
-    public void enterNote(String user, String note) {
+    public void addNote(String user, String note) {
         this.user = new User(user);
         this.note = new Note(note);
     }
