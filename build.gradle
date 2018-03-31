@@ -7,9 +7,15 @@ plugins {
 
 version = '1.0.0'
 
+project.ext {
+    cucumberVersion = '2.4.0'
+}
+
 dependencies {
     testCompile "junit:junit:4.12"
     testCompile 'org.assertj:assertj-core:3.9.1'
+    testCompile 'io.cucumber:cucumber-java:' + cucumberVersion
+    testCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
 }
 
 repositories {
@@ -26,6 +32,11 @@ shadowJar {
                 'Implementation-Version': version,
                 'Build-Date': new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date())
     }
+}
+
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
 }
 
 task stage() {
