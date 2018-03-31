@@ -4,14 +4,18 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import se.thinkcode.memory.notes.Note;
+import se.thinkcode.memory.steps.helpers.InMemoryNoteHelper;
 import se.thinkcode.memory.steps.helpers.NoteHelper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NoteSteps {
-
-    private NoteHelper helper = new NoteHelper();
+    private NoteHelper helper;
     private Note note;
+
+    public NoteSteps() {
+        helper = new InMemoryNoteHelper();
+    }
 
     @Given("^(.*) want to remember to (.*)$")
     public void remember_a_note(String user, String note) {
