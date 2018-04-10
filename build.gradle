@@ -8,14 +8,20 @@ plugins {
 version = '1.0.0'
 
 project.ext {
+    sparkjavaVersion = '2.7.2'
     cucumberVersion = '2.4.0'
 }
 
 dependencies {
+    compile 'com.sparkjava:spark-core:2.7.2'
+    compile 'com.sparkjava:spark-template-mustache:2.7.1'
+    compile 'org.slf4j:slf4j-simple:1.7.21'
+
     testCompile "junit:junit:4.12"
     testCompile 'org.assertj:assertj-core:3.9.1'
     testCompile 'io.cucumber:cucumber-java:' + cucumberVersion
     testCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
+    testCompile 'org.seleniumhq.selenium:selenium-java:3.11.0'
 }
 
 repositories {
@@ -36,7 +42,7 @@ shadowJar {
 
 test {
     testLogging.showStandardStreams = true
-    systemProperties System.getProperties()
+    systemProperty "browser", System.getProperty("browser")
 }
 
 task stage() {

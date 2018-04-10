@@ -1,9 +1,11 @@
 package se.thinkcode.memory.steps;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import se.thinkcode.memory.notes.Note;
+import se.thinkcode.memory.steps.helpers.BrowserNoteHelper;
 import se.thinkcode.memory.steps.helpers.InMemoryNoteHelper;
 import se.thinkcode.memory.steps.helpers.NoteHelper;
 
@@ -14,7 +16,21 @@ public class NoteSteps {
     private Note note;
 
     public NoteSteps() {
-        helper = new InMemoryNoteHelper();
+        String browser = System.getProperties().getProperty("browser");
+
+        if (browser != null && browser.equalsIgnoreCase("true")) {
+            helper = new BrowserNoteHelper();
+        } else {
+            helper = new InMemoryNoteHelper();
+        }
+    }
+
+    @After
+    public void tearDown() {
+        if (helper instanceof BrowserNoteHelper) {
+            BrowserNoteHelper browserNoteHelper = (BrowserNoteHelper) helper;
+            browserNoteHelper.cleanUp();
+        }
     }
 
     @Given("^(.*) want to remember to (.*)$")
