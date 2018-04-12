@@ -10,4 +10,6 @@ public interface NoteHelper {
     void save();
 
     List<Note> getNotes(String currentUser);
+
+    void clean();
 }

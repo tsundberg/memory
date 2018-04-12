@@ -27,10 +27,7 @@ public class NoteSteps {
 
     @After
     public void tearDown() {
-        if (helper instanceof BrowserNoteHelper) {
-            BrowserNoteHelper browserNoteHelper = (BrowserNoteHelper) helper;
-            browserNoteHelper.cleanUp();
-        }
+        helper.clean();
     }
 
     @Given("^(.*) want to remember to (.*)$")

@@ -25,10 +25,6 @@ public class BrowserNoteHelper implements NoteHelper {
         browser.get("http://localhost:4567");
     }
 
-    public void cleanUp() {
-        browser.quit();
-    }
-
     @Override
     public void addNote(String user, String note) {
         System.out.println();
@@ -55,5 +51,10 @@ public class BrowserNoteHelper implements NoteHelper {
         notes.add(note);
 
         return notes;
+    }
+
+    @Override
+    public void clean() {
+        browser.quit();
     }
 }

@@ -27,4 +27,8 @@ public class InMemoryNoteHelper implements NoteHelper {
         User user = new User(currentUser);
         return notesRepository.getNotes(user);
     }
+
+    @Override
+    public void clean() {
+    }
 }
