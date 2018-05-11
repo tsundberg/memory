@@ -11,10 +11,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrowserNoteHelper implements NoteHelper {
+class BrowserNoteHelper implements NoteHelperImplementation {
     private WebDriver browser;
 
-    public BrowserNoteHelper() {
+    BrowserNoteHelper() {
         URL url = getClass().getResource("/geckodriver");
         String geckoDriverPath = url.getFile();
         System.setProperty("webdriver.gecko.driver", geckoDriverPath);

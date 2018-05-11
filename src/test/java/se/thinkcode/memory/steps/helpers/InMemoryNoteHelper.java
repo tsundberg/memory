@@ -6,7 +6,7 @@ import se.thinkcode.memory.user.User;
 
 import java.util.List;
 
-public class InMemoryNoteHelper implements NoteHelper {
+class InMemoryNoteHelper implements NoteHelperImplementation {
     private NotesRepository notesRepository = new NotesRepository();
     private User user;
     private Note note;
