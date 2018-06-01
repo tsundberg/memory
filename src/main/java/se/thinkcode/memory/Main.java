@@ -8,7 +8,16 @@ import spark.Spark;
 import static spark.Spark.*;
 
 public class Main {
+    private static boolean running = false;
+
     public static void main(String... args) {
+        if (!running) {
+            init();
+            running = true;
+        }
+    }
+
+    private static void init() {
         staticFileLocation("/public");
         externalStaticFileLocation(".");
         routes();
