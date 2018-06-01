@@ -27,7 +27,6 @@ class BrowserNoteHelper implements NoteHelperImplementation {
 
     @Override
     public void addNote(String user, String note) {
-        System.out.println();
         WebElement userNameField = browser.findElement(By.id("userName"));
         userNameField.sendKeys(user);
 
