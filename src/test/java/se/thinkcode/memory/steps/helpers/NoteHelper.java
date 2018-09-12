@@ -6,15 +6,17 @@ import se.thinkcode.memory.notes.Note;
 import java.util.List;
 
 public class NoteHelper {
-    private final NoteHelperImplementation helper;
+    private static NoteHelperImplementation helper = null;
 
     public NoteHelper() {
         String browser = System.getProperties().getProperty("browser");
 
-        if (browser != null && browser.equalsIgnoreCase("true")) {
-            helper = new BrowserNoteHelper();
-        } else {
-            helper = new InMemoryNoteHelper();
+        if (helper == null) {
+            if (browser != null && browser.equalsIgnoreCase("true")) {
+                helper = new BrowserNoteHelper();
+            } else {
+                helper = new InMemoryNoteHelper();
+            }
         }
     }
 
