@@ -15,12 +15,12 @@ public class MemoryTest {
     public void should_save_a_note_about_an_upcomming_concert() {
         NoteHelperImplementation helper = new InMemoryNoteHelper();
         String user = "Malin";
-        Note note = new Note("book Eric Ericssonhallen for Kårsdragets concert in autumn");
+        Note note = new Note("book Eric Ericssonhallen");
         helper.addNote(user, note.toString());
         helper.save();
 
         List<Note> notes = helper.getNotes(user);
 
-        assertThat(notes).contains();
+        assertThat(notes).contains(note);
     }
 }
