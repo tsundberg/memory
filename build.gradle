@@ -21,7 +21,7 @@ dependencies {
     testCompile 'org.assertj:assertj-core:3.9.1'
     testCompile 'io.cucumber:cucumber-java:' + cucumberVersion
     testCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
-    testCompile 'org.seleniumhq.selenium:selenium-java:3.12.0'
+    testCompile 'org.seleniumhq.selenium:selenium-java:3.14.0'
 }
 
 repositories {
