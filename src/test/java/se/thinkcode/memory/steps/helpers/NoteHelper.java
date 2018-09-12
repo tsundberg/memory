@@ -9,9 +9,8 @@ public class NoteHelper {
     private static NoteHelperImplementation helper = null;
 
     public NoteHelper() {
-        String browser = System.getProperties().getProperty("browser");
-
         if (helper == null) {
+            String browser = System.getProperties().getProperty("browser");
             if (browser != null && browser.equalsIgnoreCase("true")) {
                 helper = new BrowserNoteHelper();
             } else {
